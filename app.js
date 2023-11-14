@@ -1,52 +1,83 @@
-/*
-* Вивести на сторінку в один рядок через кому числа від 10 до 20.
-* Вивести квадрати чисел від 10 до 20.
-* Вивести таблицю множення на 7.
-* Знайти суму всіх цілих чисел від 1 до 15.
-* Знайти добуток усіх цілих чисел від 15 до 35.
-* Знайти середнє арифметичне всіх цілих чисел від 1 до 500.
-Вивести суму лише парних чисел в діапазоні від 30 до 80.
-Вивести всі числа в діапазоні від 100 до 200 кратні 3.
-Дано натуральне число. Знайти та вивести на сторінку всі його дільники.
-Визначити кількість його парних дільників.
-Знайти суму його парних дільників.
-Надрукувати повну таблицю множення від 1 до 10.
+for (i = 10; i <= 20; i++) {
+	console.log(i);
+}
 
-*/
+for (i = 10; i <= 20; i++) {
+	const quadro = i * i;
+	console.log(quadro);
+}
 
-// for (i = 10; i <= 20; i++) {
-// 	console.log(i);
-// }
+for (i = 1; i <= 10; i++) {
+	const tab = 7 * i;
 
-// for (i = 10; i <= 20; i++) {
-// 	const quadro = i * i;
-// 	console.log(quadro);
-// }
+	console.log(tab);
+}
 
-// for (i = 1; i <= 10; i++) {
-// 	const tab = 7 * i;
+let num = 0;
+for (i = 1; i <= 15; i++) {
+	num += i;
 
-// 	console.log(tab);
-// }
+	console.log(num);
+}
 
-// let num = 0;
-// for (i = 1; i <= 15; i++) {
-// 	num += i;
+let num1 = 1;
+for (i = 15; i <= 35; i++) {
+	num1 *= i;
 
-// 	console.log(num);
-// }
-
-// let num1 = 1;
-// for (i = 15; i <= 35; i++) {
-// 	num1 *= i;
-
-// 	console.log(num1);
-// }
+	console.log(num1);
+}
 
 let avrg = 0;
 for (i = 1; i <= 500; i++) {
 	avrg += i;
 	const res = avrg / 500;
-
 	console.log(res);
+}
+
+for (i = 30; i <= 80; i++) {
+	if (i % 2 === 0) {
+		console.log(i);
+	}
+}
+
+for (i = 100; i <= 200; i++) {
+	if (i % 3 === 0) {
+		console.log(i);
+	}
+}
+
+const nature = Number(prompt('Напишіть число:'));
+
+for (i = 1; i <= nature; i++) {
+	if (nature % i === 0) {
+		console.log(i);
+	}
+}
+
+const nature = Number(prompt('Напишіть число:'));
+
+for (i = 1; i <= nature; i++) {
+	if (nature % 2 === 0 && i % 2 === 0) {
+		console.log(i);
+	}
+}
+
+const nature = Number(prompt('Напишіть число:'));
+let summ = 0;
+for (i = 1; i <= nature; i++) {
+	if (nature % 2 === 0 && i % 2 === 0) {
+		summ += i;
+		console.log(i);
+	}
+}
+
+console.log('сума ' + summ);
+
+let it = 1;
+
+for (i = 1; i <= 10; i++) {
+	for (y = 1; y <= 10; y++) {
+		const aY = i * y;
+		console.log(aY);
+	}
 }
