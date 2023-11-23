@@ -6,7 +6,7 @@
 
 ** Написати функцію заповнення даними користувача двомірного масиву. Довжину основного масиву і внутрішніх масивів задає користувач. Значення всіх елементів всіх масивів задає користувач.
 
-*? Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". Вихідний рядок та символи для видалення задає користувач.
+** Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". Вихідний рядок та символи для видалення задає користувач.
 
  */
 
@@ -21,13 +21,14 @@ function averageArray(currentArray) {
 		return accamulator + currentValue;
 	});
 
-	averagePoint = sumPoint / filteredArray.length;
+	let averagePoint = sumPoint / filteredArray.length;
 	return averagePoint;
 }
 
 averageArray(arr);
 
 function doMath(x, znak, y) {
+	let res;
 	if (znak === '+') {
 		res = x + y;
 	} else if (znak === '-') {
@@ -52,49 +53,56 @@ const math = doMath(12, '^', 4);
 let mainArray;
 let subArray;
 
-//Double array pushing func
-// function doubleArray() {
-// 	//Get array length
-// 	let createMainArray = Number(prompt('Write array length'));
+// Double array pushing func
+function doubleArray() {
+	//Get array length
+	let createMainArray = Number(prompt('Write array length'));
 
-// 	//Type of data
-// 	if (typeof createMainArray === 'number') {
-// 		mainArray = new Array(createMainArray);
-// 		console.log(mainArray);
-// 	} else {
-// 		alert('Wrong symbol. Number only!');
-// 	}
+	//Type of data
+	if (typeof createMainArray === 'number') {
+		mainArray = new Array(createMainArray);
+	} else {
+		alert('Wrong symbol. Number only!');
+	}
 
-// 	//Push new data to main array
-// 	mainArray = prompt('Write array data').split(' ', mainArray.length);
-// 	console.log(mainArray);
+	//Push new data to main array
+	mainArray = prompt('Write array data').split(' ', mainArray.length);
+	console.log(mainArray);
 
-// 	//Get sub array length
-// 	let createSubArrayLength = Number(prompt('Write sub array length'));
+	//Get sub array length
+	let createSubArrayLength = Number(prompt('Write sub array length'));
 
-// 	//Type of data
-// 	if (typeof createMainArray === 'number') {
-// 		subArray = new Array(createMainArray);
-// 		console.log(subArray);
-// 	} else {
-// 		alert('Wrong symbol. Number only!');
-// 	}
+	//Type of data
+	if (typeof createMainArray === 'number') {
+		subArray = new Array(createMainArray);
+		console.log(subArray);
+	} else {
+		alert('Wrong symbol. Number only!');
+	}
 
-// 	//Push new data to sub array
-// 	subArray = mainArray.unshift(prompt('Write sub array data').split(' '));
-// 	console.log(subArray);
-// }
+	//Push new data to sub array
+	subArray = mainArray.unshift(prompt('Write sub array data').split(' '));
+	console.log(mainArray);
+}
 
-// doubleArray();
-
-let selectSymbols;
+doubleArray();
 
 //clear func
 function textClear(text, symbols) {
-	textToClear = prompt('Write text, which need to clear on').split('');
-	symbolsToDelete = prompt('Write symbols to delete').split(' ');
+	text = prompt('Write text, which need to clear on').split('');
+	symbols = prompt('Write symbols to delete').split('');
 
-	selectSymbols = textToClear.map((symbol) => {});
+	const strSymbols = symbols.join(', ');
+	console.log(symbols);
+
+	const clearText = text.map((symbol) => {
+		const regex = new RegExp(`[${symbols.join('')}]`, 'g');
+		return symbol.replace(regex, '');
+	});
+
+	console.log(`${clearText.join('')}`);
+
+	return clearText.join('');
 }
 
 textClear();
